@@ -1,0 +1,8 @@
+Python 2
+
+sentence = raw_input('Enter a phrase here: ')
+response=''
+for word in sentence.split():
+  response+=word[1:len(word)]+word[0]+'ay '
+
+print 'Pig Latin: '+response
