@@ -1,5 +1,5 @@
 Python 2
-
+##
 sentence = raw_input('Enter a phrase here: ')
 response=''
 for word in sentence.split():
@@ -8,7 +8,7 @@ for word in sentence.split():
 print 'Pig Latin: '+response
 
 
-
+##
 sentence= raw_input('Enter phrase here: ')
 ls=[]
 for word in sentence.split():
@@ -21,4 +21,18 @@ for x in ls:
   str_return+= x
  
 print(str_return)
+
+##
+sentence = raw_input('Enter a phrase here: ')
+response=''
+
+sentence = raw_input('Enter a phrase here: ')
+response=''
+
+while len(sentence) == 0 or sentence.isalpha()!=True:
+  sentence = raw_input("Please Enter a phrase: ")
+else:
+  for word in sentence.split():
+   response+= word[1:len(word)]+word[0]+'ay '
+print('Pig Latin: ' +response)
  
