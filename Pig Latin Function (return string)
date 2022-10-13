@@ -6,3 +6,19 @@ for word in sentence.split():
   response+=word[1:len(word)]+word[0]+'ay '
 
 print 'Pig Latin: '+response
+
+
+
+sentence= raw_input('Enter phrase here: ')
+ls=[]
+for word in sentence.split():
+  ls.append(word[1:len(word)]+word[0]+'ay ')
+ 
+print(ls)
+ 
+str_return=''
+for x in ls:
+  str_return+= x
+ 
+print(str_return)
+ 
