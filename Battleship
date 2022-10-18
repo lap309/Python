@@ -4,62 +4,114 @@
 ##Use functions to allow your game to have more features like rematches, statistics and more!from random 
 
 from random import randint
-
+##Board Set up
 board = []
+answer_board=[]
 
-for x in range(1, 9):
-  board.append(["O"] * 8)
+battle_ship_locations =[]
 
-def print_board(board):
-  for row in board:
-    print " ".join(row)
+for x in range(1, 13):
+    board.append(["o"] * 12)
+    answer_board.append(["o"] * 12)
 
-print_board(board)
+def print_board(turn):
+   for row in board:
+     print " ".join(row)
 
-def battleship_2(board_input):
-  size=2
-  ship_2 = []
-  x1 = randint(1,len(board)+1)
-  y1=randint(1,len(board)+1)
-  ship_2.append([x1,y1])
+def print_answer_board(test):
+  for rows in answer_board:
+    print " ".join(rows)
+
+##Battle Ship 5 Placement
+def battleship_5(board_input):
+  size=5
+  ship_5 = []
+  x1 = randint(1,len(board)-4)
+  y1=randint(1,len(board)-4)
+  ship_5.append([x1,y1])
   direction=randint(1,2)
   if direction==1:
     for i in range(1,size):
-      ship_2.append([x1+i,y1])
+      ship_5.append([x1+i,y1])
   else:
     for i in range(1,size):
-      ship_2.append([x1,y1+i])
+      ship_5.append([x1,y1+i])
+  for coordinate_pair in ship_5:
+    battle_ship_locations.append(coordinate_pair)
+    answer_board[abs(coordinate_pair[1]-12)][coordinate_pair[0]-1]='5'
+  print ship_5
+  return(ship_5)
+  return battle_ship_locations
+  return answer_board
 
-  print('Ship 2: ',ship_2)
-  return(ship_2)
+battleship_5(board) ##
+# print 'Battle Ship Locations: ',battle_ship_locations ##
+print print_answer_board(answer_board)
 
-def battleship_3(board_input):
-  size=3
-  ship_3 = []
-  x1 = randint(1,len(board)+1)
-  y1=randint(1,len(board)+1)
-  ship_3.append([x1,y1])
-  direction=randint(1,2)
-  if direction==1:
-    for i in range(1,size):
-      ship_3.append([x1+i,y1])
-  else:
-    for i in range(1,size):
-      ship_3.append([x1,y1+i])
 
-  print'Ship 3: ',ship_3
-  return(ship_3)
+# ##Battle Ship 4 Placement
+# def battleship_4(board_input):
+#   size=4
+#   ship_4 = []
+#   x1 = randint(1,len(board)+1)
+#   y1=randint(1,len(board)+1)
+#   ship_4.append([x1,y1])
+#   direction=randint(1,2)
+#   if direction==1:
+#     for i in range(1,size):
+#       ship_4.append([x1+i,y1])
+#   else:
+#     for i in range(1,size):
+#       ship_4.append([x1,y1+i])
+
+#   print'Ship 4: ',ship_4
+#   return(ship_4)
+
+
+# def battleship_3(board_input):
+#   size=3
+#   ship_3 = []
+#   x1 = randint(1,len(board)+1)
+#   y1=randint(1,len(board)+1)
+#   ship_3.append([x1,y1])
+#   direction=randint(1,2)
+#   if direction==1:
+#     for i in range(1,size):
+#       ship_3.append([x1+i,y1])
+#   else:
+#     for i in range(1,size):
+#       ship_3.append([x1,y1+i])
+
+#   print'Ship 3: ',ship_3
+#   return(ship_3)
 
 # battleship_2(board)
-battleship_3(board)
-# battleship_4(board)
+# battleship_3(board)
+# # battleship_4(board)
 # battleship_5(board)
 
-def random_row(board):
-  return randint(1, len(board))
+# def battleship_2(board_input):
+#   size=2
+#   ship_2 = []
+#   x1 = randint(1,len(board)+1)
+#   y1=randint(1,len(board)+1)
+#   ship_2.append([x1,y1])
+#   direction=randint(1,2)
+#   if direction==1:
+#     for i in range(1,size):
+#       ship_2.append([x1+i,y1])
+#   else:
+#     for i in range(1,size):
+#       ship_2.append([x1,y1+i])
 
-def random_col(board):
-  return randint(1, len(board[0]))
+#   print'Ship 2: ',ship_2
+#   return(ship_2)
+
+# def random_row(board):
+#   return randint(1, len(board))
+
+# def random_col(board):
+#   return randint(1, len(board[0]))
 
 battleships_left = [1,2,3,4,5]
 
